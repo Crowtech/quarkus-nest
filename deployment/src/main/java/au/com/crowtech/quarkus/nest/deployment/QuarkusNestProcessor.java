@@ -1,6 +1,8 @@
 package au.com.crowtech.quarkus.nest.deployment;
 
-import au.com.crowtech.quarkus.nest.GreetingServlet;
+
+import au.com.crowtech.quarkus.nest.endpoints.ExampleResource;
+import au.com.crowtech.quarkus.nest.endpoints.GreetingServlet;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
 import io.quarkus.undertow.deployment.ServletBuildItem;
@@ -22,4 +24,11 @@ class QuarkusNestProcessor {
       return servletBuildItem;
     }
 
+//    @BuildStep
+//    ServletBuildItem createEcho() { 
+//      ServletBuildItem servletBuildItem = ServletBuildItem.builder("crowtech-nest-echo", ExampleResource.class.getName())
+//        .addMapping("/echo")
+//        .build(); 
+//      return servletBuildItem;
+//    }
 }
