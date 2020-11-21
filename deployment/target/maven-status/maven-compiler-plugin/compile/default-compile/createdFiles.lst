@@ -1,0 +1,4 @@
+au/com/crowtech/quarkus/nest/deployment/QuarkusNestProcessor.class
+META-INF/quarkus-javadoc.properties
+au/com/crowtech/quarkus/nest/deployment/QuarkusNestProcessor$$accessor.class
+META-INF/quarkus-build-steps.list

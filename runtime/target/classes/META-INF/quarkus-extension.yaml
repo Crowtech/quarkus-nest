@@ -1,0 +1,6 @@
+---
+metadata: {}
+group-id: "au.com.crowtech"
+artifact-id: "quarkus-nest"
+version: "1.0-SNAPSHOT"
+name: "Crowtech Nest - Runtime"
