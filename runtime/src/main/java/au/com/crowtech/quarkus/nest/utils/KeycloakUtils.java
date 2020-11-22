@@ -69,6 +69,7 @@ import io.vertx.core.json.JsonObject;
 public class KeycloakUtils {
 	 private static final Logger log = Logger.getLogger(KeycloakUtils.class);	
 	private static Integer ACCESS_TOKEN_EXPIRY_LIMIT_SECONDS = 3600;
+	private static Integer MAX_USERS_FETCHED = 100000;
 
 
 		public static String getAccessToken(String keycloakUrl, String realm, String clientId, String secret, String username,
@@ -667,7 +668,16 @@ public class KeycloakUtils {
 	    return null;
 	}
 		
+		public static List<LinkedHashMap> fetchAllKeycloakUsers(String keycloakUrl,final String token, final String realm) {
+			return fetchKeycloakUsers(keycloakUrl, token, realm, null);
+		}
+
+		
 		public static List<LinkedHashMap> fetchKeycloakUsers(String keycloakUrl,final String token, final String realm, final String username) {
+			return fetchKeycloakUsers(keycloakUrl, token, realm, username,0,MAX_USERS_FETCHED);
+		}
+		
+		public static List<LinkedHashMap> fetchKeycloakUsers(String keycloakUrl,final String token, final String realm, final String username,Integer pageIndex, Integer pageSize) {
 			List<LinkedHashMap> results = new ArrayList<LinkedHashMap>();
 		    final HttpClient client = new DefaultHttpClient();
 
@@ -680,7 +690,7 @@ public class KeycloakUtils {
 		    	  String encodedUsername = encodeValue(username);
 		    	  url = keycloakUrl + "/auth/admin/realms/" + realm + "/users?username=" + encodedUsername;
 		      } else {
-		    	  url = keycloakUrl + "/auth/admin/realms/" + realm + "/users";
+		    	  url = keycloakUrl + "/auth/admin/realms/" + realm + "/users?max="+pageSize+"&first="+pageIndex;
 		      }
 		      get =  new HttpGet(url);
 		      get.addHeader("Authorization", "Bearer " + token);
@@ -724,7 +734,7 @@ public class KeycloakUtils {
 //							return keycloakURL;
 //		}
 
-		public static int setPassword(String keycloakUrl, String token,String realm, String userId, String password)
+		public static int setPassword(String keycloakUrl, String token,String realm, String uuid, String password)
 				throws IOException {
 			String json = "{\"type\": \"password\", " + "\"temporary\": false," + "\"value\": \"" + password + "\"" + "}";
 
@@ -732,7 +742,7 @@ public class KeycloakUtils {
 
 			try {
 				HttpPut put = new HttpPut(
-						keycloakUrl + "/auth/admin/realms/" + realm + "/users/" + userId + "/reset-password");
+						keycloakUrl + "/auth/admin/realms/" + realm + "/users/" + uuid + "/reset-password");
 
 				put.addHeader("Content-Type", "application/json");
 				put.addHeader("Authorization", "Bearer " + token);
@@ -832,7 +842,7 @@ public class KeycloakUtils {
 
 				HttpPut putRequest = new HttpPut(keycloakUrl + "/auth/admin/realms/" + realm + "/users/" + userId + "/send-verify-email");
 
-				log.info(keycloakUrl + "/auth/admin/realms/" + "internmatch" + "/users/" + userId + "/send-verify-email");
+				log.info(keycloakUrl + "/auth/admin/realms/" + realm + "/users/" + userId + "/send-verify-email");
 
 				putRequest.addHeader("Content-Type", "application/json");
 				putRequest.addHeader("Authorization", "Bearer " + servicetoken);
