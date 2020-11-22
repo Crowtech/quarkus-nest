@@ -32,6 +32,7 @@ import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
 import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
@@ -44,6 +45,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -1109,7 +1111,7 @@ public class KeycloakUtils {
 		public static String executeActions(String keycloakUrl, String realm, String clientId, String secret, Integer lifespan, String uuid, String redirectUrl, String actions, String exchangedToken) throws IOException {
 
 		
-      	HttpClient httpClient = new DefaultHttpClient();
+      	CloseableHttpClient httpClient = new DefaultHttpClient();
 
     		try {
     			ArrayList<NameValuePair> postParameters;											
@@ -1118,17 +1120,21 @@ public class KeycloakUtils {
 
     			try {
 //    				// this needs -Dkeycloak.profile.feature.token_exchange=enabled
-    				String url = keycloakUrl + "/auth/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan+"&actions="+actions+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
-        			HttpPut post = new HttpPut(url);
-        			 postParameters = new ArrayList<NameValuePair>(); 
-         			    post.setEntity(new UrlEncodedFormEntity(postParameters, "UTF-8"));
-     
-        			
+    				String url = keycloakUrl + "/auth/admin/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan;//+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
+        			HttpPut put = new HttpPut(url);
+        		//	 String inputJson = "{[\"UPDATE_PASSWORD\"]}" ;//+
+        			       //     " [ \""+actions+"\"]" +
+        			       //     "";
+        			 
+        			        StringEntity stringEntity  = new StringEntity("[\"UPDATE_PASSWORD\"]");
+        			        put.setEntity(stringEntity);
+        			        
 
-    				post.addHeader("Content-Type", "application/x-www-form-urlencoded");
-    				post.addHeader("Authorization", "Bearer " + exchangedToken);
+    				put.addHeader("content-type", MediaType.APPLICATION_JSON);
+    				put.addHeader("Accept", MediaType.APPLICATION_JSON);
+    				put.addHeader("Authorization", "Bearer " + exchangedToken);
 
-    				HttpResponse response = httpClient.execute(post);
+    				CloseableHttpResponse response = httpClient.execute(put);
 
     				int statusCode = response.getStatusLine().getStatusCode();
     				log.info("StatusCode: " + statusCode);
