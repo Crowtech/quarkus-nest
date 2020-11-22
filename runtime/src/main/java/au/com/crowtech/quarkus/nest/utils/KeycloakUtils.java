@@ -1121,59 +1121,59 @@ public class KeycloakUtils {
 			putRequest.setEntity(jSonEntity);
 			CloseableHttpResponse response2 = httpclient.execute(putRequest);
 		
-      	CloseableHttpClient httpClient = new DefaultHttpClient();
-
-    		try {
-    			ArrayList<NameValuePair> postParameters;											
-
-
-
-    			try {
-//    				// this needs -Dkeycloak.profile.feature.token_exchange=enabled
-    				String url = keycloakUrl + "/auth/admin/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan;//+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
-        			HttpPut put = new HttpPut(url);
-        		//	 String inputJson = "{[\"UPDATE_PASSWORD\"]}" ;//+
-        			       //     " [ \""+actions+"\"]" +
-        			       //     "";
-        			 
-        			        StringEntity stringEntity  = new StringEntity("[\"UPDATE_PASSWORD\"]");
-        			        put.setEntity(stringEntity);
-        			        
-
-    				put.addHeader("content-type", MediaType.APPLICATION_JSON);
-    				put.addHeader("Accept", MediaType.APPLICATION_JSON);
-    				put.addHeader("Authorization", "Bearer " + exchangedToken);
-
-    				CloseableHttpResponse response = httpClient.execute(put);
-
-    				int statusCode = response.getStatusLine().getStatusCode();
-    				log.info("StatusCode: " + statusCode);
-
-    				HttpEntity entity = response.getEntity();
-
-    				String content = null;
-    				if (statusCode != 200) {
-    					content = getContent(entity);
-    					throw new IOException("" + statusCode+" "+content);
-    				}
-    				if (entity == null) {
-    					throw new IOException("Null Entity");
-    				} else {
-    					content = getContent(entity);
-    					log.info("redirect content="+content);
-    					
-    				}
-
-    			} catch (Exception ee) {
-    				System.out.println(ee.getMessage());
-    			} finally {
-    				httpClient.getConnectionManager().shutdown();
-    			}
-    		} catch (Exception ee) {
-    		
-    		} finally {
-    			httpClient.getConnectionManager().shutdown();
-    		}
+//      	CloseableHttpClient httpClient = new DefaultHttpClient();
+//
+//    		try {
+//    			ArrayList<NameValuePair> postParameters;											
+//
+//
+//
+//    			try {
+////    				// this needs -Dkeycloak.profile.feature.token_exchange=enabled
+//    				String url = keycloakUrl + "/auth/admin/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan;//+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
+//        			HttpPut put = new HttpPut(url);
+//        		//	 String inputJson = "{[\"UPDATE_PASSWORD\"]}" ;//+
+//        			       //     " [ \""+actions+"\"]" +
+//        			       //     "";
+//        			 
+//        			        StringEntity stringEntity  = new StringEntity("[\"UPDATE_PASSWORD\"]");
+//        			        put.setEntity(stringEntity);
+//        			        
+//
+//    				put.addHeader("content-type", MediaType.APPLICATION_JSON);
+//    				put.addHeader("Accept", MediaType.APPLICATION_JSON);
+//    				put.addHeader("Authorization", "Bearer " + exchangedToken);
+//
+//    				CloseableHttpResponse response = httpClient.execute(put);
+//
+//    				int statusCode = response.getStatusLine().getStatusCode();
+//    				log.info("StatusCode: " + statusCode);
+//
+//    				HttpEntity entity = response.getEntity();
+//
+//    				String content = null;
+//    				if (statusCode != 200) {
+//    					content = getContent(entity);
+//    					throw new IOException("" + statusCode+" "+content);
+//    				}
+//    				if (entity == null) {
+//    					throw new IOException("Null Entity");
+//    				} else {
+//    					content = getContent(entity);
+//    					log.info("redirect content="+content);
+//    					
+//    				}
+//
+//    			} catch (Exception ee) {
+//    				System.out.println(ee.getMessage());
+//    			} finally {
+//    				httpClient.getConnectionManager().shutdown();
+//    			}
+//    		} catch (Exception ee) {
+//    		
+//    		} finally {
+//    			httpClient.getConnectionManager().shutdown();
+//    		}
     		return null;
 	}
 		
