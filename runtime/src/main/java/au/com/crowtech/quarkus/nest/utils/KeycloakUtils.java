@@ -31,6 +31,9 @@ import javax.json.JsonException;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
+import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -1102,4 +1105,69 @@ public class KeycloakUtils {
 		}
 
 	}
+	
+		public static String executeActions(String keycloakUrl, String realm, String clientId, String secret, Integer lifespan, String uuid, String redirectUrl, String actions, String exchangedToken) throws IOException {
+
+		
+      	HttpClient httpClient = new DefaultHttpClient();
+
+    		try {
+    			ArrayList<NameValuePair> postParameters;											
+
+
+
+    			try {
+//    				// this needs -Dkeycloak.profile.feature.token_exchange=enabled
+    				String url = keycloakUrl + "/auth/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan+"&actions="+actions+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
+        			HttpPut post = new HttpPut(url);
+        			 postParameters = new ArrayList<NameValuePair>(); 
+         			    post.setEntity(new UrlEncodedFormEntity(postParameters, "UTF-8"));
+     
+        			
+
+    				post.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    				post.addHeader("Authorization", "Bearer " + exchangedToken);
+
+    				HttpResponse response = httpClient.execute(post);
+
+    				int statusCode = response.getStatusLine().getStatusCode();
+    				log.info("StatusCode: " + statusCode);
+
+    				HttpEntity entity = response.getEntity();
+
+    				String content = null;
+    				if (statusCode != 200) {
+    					content = getContent(entity);
+    					throw new IOException("" + statusCode+" "+content);
+    				}
+    				if (entity == null) {
+    					throw new IOException("Null Entity");
+    				} else {
+    					content = getContent(entity);
+    					log.info("redirect content="+content);
+    					
+    				}
+
+    			} catch (Exception ee) {
+    				System.out.println(ee.getMessage());
+    			} finally {
+    				httpClient.getConnectionManager().shutdown();
+    			}
+    		} catch (Exception ee) {
+    		
+    		} finally {
+    			httpClient.getConnectionManager().shutdown();
+    		}
+    		return null;
+	}
+		
+//		curl --request POST 'https://path-to-your-host.com/auth/realms/your-realm/account/credentials/password' \
+//		--header 'Accept: application/json' \
+//		--header "Authorization: Bearer $ACCESS_TOKEN" \
+//		--header 'Content-Type: application/json' \
+//		--data-raw '{
+//		    "currentPassword": "oldPassword",
+//		    "newPassword": "newPassword",
+//		    "confirmation": "newPassword"
+//		}'
 }
