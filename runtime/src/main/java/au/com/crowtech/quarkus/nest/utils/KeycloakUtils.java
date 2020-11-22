@@ -1109,73 +1109,26 @@ public class KeycloakUtils {
 
 	}
 	
-		public static String executeActions(String keycloakUrl, String realm, String clientId, String secret, Integer lifespan, String uuid, String redirectUrl, String actions, String exchangedToken) throws IOException {
+	public static String executeActions(String keycloakUrl, String realm, String clientId, String secret, Integer lifespan, String uuid, String redirectUrl, List<String> actions, String exchangedToken) throws IOException {
 
-			CloseableHttpClient httpclient = HttpClients.createDefault();
-			String urlResetPassword = keycloakUrl+"/auth/admin/realms/"+realm+"/users/"+uuid+"/execute-actions-email";
-			HttpPut putRequest = new HttpPut(urlResetPassword);
-			putRequest.addHeader("Authorization", "bearer "+exchangedToken);
-			putRequest.addHeader("content-type", MediaType.APPLICATION_JSON);
-			putRequest.setHeader("Accept", MediaType.APPLICATION_JSON);
-			StringEntity jSonEntity = new StringEntity("[\"UPDATE_PASSWORD\"]");
-			putRequest.setEntity(jSonEntity);
-			CloseableHttpResponse response2 = httpclient.execute(putRequest);
-		
-//      	CloseableHttpClient httpClient = new DefaultHttpClient();
-//
-//    		try {
-//    			ArrayList<NameValuePair> postParameters;											
-//
-//
-//
-//    			try {
-////    				// this needs -Dkeycloak.profile.feature.token_exchange=enabled
-//    				String url = keycloakUrl + "/auth/admin/realms/" + realm + "/users/"+uuid+"/execute-actions-email?lifespan="+lifespan;//+"&redirect_uri="+redirectUrl+"&client_id="+clientId;
-//        			HttpPut put = new HttpPut(url);
-//        		//	 String inputJson = "{[\"UPDATE_PASSWORD\"]}" ;//+
-//        			       //     " [ \""+actions+"\"]" +
-//        			       //     "";
-//        			 
-//        			        StringEntity stringEntity  = new StringEntity("[\"UPDATE_PASSWORD\"]");
-//        			        put.setEntity(stringEntity);
-//        			        
-//
-//    				put.addHeader("content-type", MediaType.APPLICATION_JSON);
-//    				put.addHeader("Accept", MediaType.APPLICATION_JSON);
-//    				put.addHeader("Authorization", "Bearer " + exchangedToken);
-//
-//    				CloseableHttpResponse response = httpClient.execute(put);
-//
-//    				int statusCode = response.getStatusLine().getStatusCode();
-//    				log.info("StatusCode: " + statusCode);
-//
-//    				HttpEntity entity = response.getEntity();
-//
-//    				String content = null;
-//    				if (statusCode != 200) {
-//    					content = getContent(entity);
-//    					throw new IOException("" + statusCode+" "+content);
-//    				}
-//    				if (entity == null) {
-//    					throw new IOException("Null Entity");
-//    				} else {
-//    					content = getContent(entity);
-//    					log.info("redirect content="+content);
-//    					
-//    				}
-//
-//    			} catch (Exception ee) {
-//    				System.out.println(ee.getMessage());
-//    			} finally {
-//    				httpClient.getConnectionManager().shutdown();
-//    			}
-//    		} catch (Exception ee) {
-//    		
-//    		} finally {
-//    			httpClient.getConnectionManager().shutdown();
-//    		}
-    		return null;
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		String urlResetPassword = keycloakUrl+"/auth/admin/realms/"+realm+"/users/"+uuid+"/execute-actions-email";
+		HttpPut putRequest = new HttpPut(urlResetPassword);
+		putRequest.addHeader("Authorization", "bearer "+exchangedToken);
+		putRequest.addHeader("content-type", MediaType.APPLICATION_JSON);
+		putRequest.setHeader("Accept", MediaType.APPLICATION_JSON);
+		String actionsArray = "[";
+		for (String action : actions) {
+			actionsArray += "\""+action+"\",";
+		}
+		actionsArray = actionsArray.substring(0,actionsArray.length()-1);
+		actionsArray += "]";
+		StringEntity jSonEntity = new StringEntity(actionsArray);
+		putRequest.setEntity(jSonEntity);
+		CloseableHttpResponse response2 = httpclient.execute(putRequest);
+		return "OK";
 	}
+	
 		
 //		curl --request POST 'https://path-to-your-host.com/auth/realms/your-realm/account/credentials/password' \
 //		--header 'Accept: application/json' \
