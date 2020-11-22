@@ -54,6 +54,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.jboss.logging.Logger;
 
@@ -1110,6 +1111,15 @@ public class KeycloakUtils {
 	
 		public static String executeActions(String keycloakUrl, String realm, String clientId, String secret, Integer lifespan, String uuid, String redirectUrl, String actions, String exchangedToken) throws IOException {
 
+			CloseableHttpClient httpclient = HttpClients.createDefault();
+			String urlResetPassword = keycloakUrl+"/auth/admin/realms/"+realm+"/users/"+uuid+"/execute-actions-email";
+			HttpPut putRequest = new HttpPut(urlResetPassword);
+			putRequest.addHeader("Authorization", "bearer "+exchangedToken);
+			putRequest.addHeader("content-type", MediaType.APPLICATION_JSON);
+			putRequest.setHeader("Accept", MediaType.APPLICATION_JSON);
+			StringEntity jSonEntity = new StringEntity("[\"UPDATE_PASSWORD\"]");
+			putRequest.setEntity(jSonEntity);
+			CloseableHttpResponse response2 = httpclient.execute(putRequest);
 		
       	CloseableHttpClient httpClient = new DefaultHttpClient();
 
