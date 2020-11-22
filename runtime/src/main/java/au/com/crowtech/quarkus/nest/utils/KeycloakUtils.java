@@ -673,9 +673,16 @@ public class KeycloakUtils {
 
 		    
 		    try {
-		    	String encodedUsername = encodeValue(username);
-		      final HttpGet get =
-		          new HttpGet(keycloakUrl + "/auth/admin/realms/" + realm + "/users?username=" + encodedUsername);
+		    	
+		      HttpGet get = null;
+		      String url = null;
+		      if (username != null) {
+		    	  String encodedUsername = encodeValue(username);
+		    	  url = keycloakUrl + "/auth/admin/realms/" + realm + "/users?username=" + encodedUsername;
+		      } else {
+		    	  url = keycloakUrl + "/auth/admin/realms/" + realm + "/users";
+		      }
+		      get =  new HttpGet(url);
 		      get.addHeader("Authorization", "Bearer " + token);
 		      try {
 		        final HttpResponse response = client.execute(get);
