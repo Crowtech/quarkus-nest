@@ -1,13 +1,14 @@
 package au.com.crowtech.quarkus.nest.deployment;
 
-import io.quarkus.test.QuarkusUnitTest;
-import io.restassured.RestAssured;
+import static org.hamcrest.Matchers.containsString;
+
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
-import static org.hamcrest.Matchers.containsString;
+import io.quarkus.test.QuarkusUnitTest;
+import io.restassured.RestAssured;
 
 public class GreetingTest {
 
@@ -19,5 +20,7 @@ public class GreetingTest {
   public void testGreeting() {
     RestAssured.when().get("/greeting").then().statusCode(200).body(containsString("Hello")); 
   }
+
+  
 
 }
