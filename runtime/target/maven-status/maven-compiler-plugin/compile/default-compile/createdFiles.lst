@@ -12,5 +12,6 @@ au/com/crowtech/quarkus/nest/beans/Echo.class
 au/com/crowtech/quarkus/nest/utils/StringMessage.class
 au/com/crowtech/quarkus/nest/utils/CuteNameGenerator.class
 au/com/crowtech/quarkus/nest/models/Value.class
+au/com/crowtech/quarkus/nest/utils/PropertiesReader.class
 au/com/crowtech/quarkus/nest/adapters/EmailAdapter.class
 au/com/crowtech/quarkus/nest/adapters/LocalTimeAdapter.class
