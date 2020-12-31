@@ -7,7 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Pattern;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 @Embeddable
+@RegisterForReflection
 public class Email implements Serializable {
 	
     /**

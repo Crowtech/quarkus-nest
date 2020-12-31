@@ -1,16 +1,12 @@
 package au.com.crowtech.quarkus.nest.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-import javax.json.JsonNumber;
-import javax.json.JsonObject;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -20,9 +16,16 @@ import org.apache.commons.lang3.StringUtils;
 import au.com.crowtech.quarkus.nest.adapters.LocalDateAdapter;
 import au.com.crowtech.quarkus.nest.adapters.LocalDateTimeAdapter;
 import au.com.crowtech.quarkus.nest.adapters.LocalTimeAdapter;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 
 @Embeddable
-public class Value {
+@RegisterForReflection
+public class Value implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Column(name = "valueString", columnDefinition = "MEDIUMTEXT")
 	public String valueString = null;
 	@JsonbTypeAdapter(LocalDateTimeAdapter.class)
