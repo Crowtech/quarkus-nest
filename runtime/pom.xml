@@ -64,7 +64,7 @@
 			<version>${testcontainers.version}</version>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.bitbucket.b_c</groupId>
 			<artifactId>jose4j</artifactId>
 			<version>${jose4j.version}</version>
@@ -76,7 +76,7 @@
 			<artifactId>microprofile-jwt-auth-api</artifactId>
 			<version>${microprofile-jwt-auth-api.version}</version>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
 			<version>${jjwt-api.version}</version>
@@ -93,7 +93,7 @@
 			<version>${jjwt-api.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
