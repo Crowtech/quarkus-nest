@@ -16,7 +16,9 @@
 	<properties>
 		<commons-lang3.version>3.10</commons-lang3.version>
 		<testcontainers.version>1.14.1</testcontainers.version>
-
+		<jose4j.version>0.7.2</jose4j.version>
+		<microprofile-jwt-auth-api.version>1.2-RC3</microprofile-jwt-auth-api.version>
+		<jjwt-api.version>0.10.7</jjwt-api.version>
 	</properties>
 
 	<dependencies>
@@ -62,6 +64,36 @@
 			<version>${testcontainers.version}</version>
 			<scope>test</scope>
 		</dependency>
+				<dependency>
+			<groupId>org.bitbucket.b_c</groupId>
+			<artifactId>jose4j</artifactId>
+			<version>${jose4j.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.eclipse.microprofile.jwt</groupId>
+			<artifactId>microprofile-jwt-auth-api</artifactId>
+			<version>${microprofile-jwt-auth-api.version}</version>
+		</dependency>
+				<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jjwt-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jjwt-api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${jjwt-api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

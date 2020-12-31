@@ -1,6 +1,7 @@
 au/com/crowtech/quarkus/nest/adapters/ValueAdapter.class
 au/com/crowtech/quarkus/nest/adapters/LocalDateAdapter.class
 au/com/crowtech/quarkus/nest/utils/KeycloakUtils$1.class
+au/com/crowtech/quarkus/nest/utils/SecurityUtils.class
 au/com/crowtech/quarkus/nest/utils/RawStringMessage.class
 au/com/crowtech/quarkus/nest/adapters/LocalDateTimeAdapter.class
 au/com/crowtech/quarkus/nest/utils/KeycloakUtils.class

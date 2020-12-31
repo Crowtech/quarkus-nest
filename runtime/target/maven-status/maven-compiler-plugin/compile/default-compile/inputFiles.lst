@@ -6,6 +6,7 @@
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/adapters/LocalDateAdapter.java
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/adapters/LocalTimeAdapter.java
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/endpoints/ExampleResource.java
+/Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/utils/SecurityUtils.java
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/utils/StringMessage.java
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/utils/CuteNameGenerator.java
 /Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/models/Value.java
