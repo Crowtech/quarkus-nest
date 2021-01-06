@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="au.com.crowtech.quarkus.nest.deployment.GreetingTest" time="4.554" tests="0" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="au.com.crowtech.quarkus.nest.deployment.GreetingTest" time="5.025" tests="0" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AU"/>
     <property name="sun.boot.library.path" value="/Users/acrow/.sdkman/candidates/java/20.3.0.r11-grl/lib"/>
-    <property name="sun.java.command" value="/Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire/surefirebooter14312918980288302689.jar /Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire 2021-01-04T23-02-10_010-jvmRun1 surefire1004306625253477097tmp surefire_018022659069284689147tmp"/>
+    <property name="sun.java.command" value="/Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire/surefirebooter10810396289897346926.jar /Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire 2021-01-06T23-58-22_674-jvmRun1 surefire16266128870639704124tmp surefire_015172043789040883741tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.6.3_1/libexec"/>
@@ -36,7 +36,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire/surefirebooter14312918980288302689.jar"/>
+    <property name="surefire.real.class.path" value="/Users/acrow/projects/crowtech/quarkus-nest/deployment/target/surefire/surefirebooter10810396289897346926.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="11.0.9+10-jvmci-20.3-b06"/>
@@ -68,7 +68,7 @@
     <property name="java.vendor" value="GraalVM Community"/>
     <property name="java.vm.version" value="11.0.9+10-jvmci-20.3-b06"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="9e:cc:b6:a7:9f:fc:0f:0f"/>
+    <property name="io.netty.machineId" value="f1:14:e2:c0:51:31:e1:b0"/>
     <property name="java.class.version" value="55.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
