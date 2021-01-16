@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import au.com.crowtech.quarkus.nest.utils.KeycloakUtils;
 
+
 public class KeycloakUtilsTest {
 	  @Test
 	  public void testKeycloak() {
