@@ -1,5 +1,6 @@
 ---
-metadata: {}
+metadata:
+  built-with-quarkus-core: "io.quarkus:quarkus-core:1.11.1.Final"
 group-id: "au.com.crowtech"
 artifact-id: "quarkus-nest"
 version: "1.0-SNAPSHOT"
