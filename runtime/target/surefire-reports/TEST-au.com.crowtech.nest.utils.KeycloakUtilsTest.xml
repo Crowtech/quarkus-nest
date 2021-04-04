@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="au.com.crowtech.nest.utils.KeycloakUtilsTest" time="0.478" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="au.com.crowtech.nest.utils.KeycloakUtilsTest" time="0.437" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="11.0.10+8-jvmci-20.3-b09"/>
-    <property name="sun.boot.library.path" value="/Users/acrow/.sdkman/candidates/java/20.3.1.r11-grl/lib"/>
+    <property name="java.vm.version" value="11.0.10+8-jvmci-21.0-b06"/>
+    <property name="sun.boot.library.path" value="/Users/acrow/.sdkman/candidates/java/21.0.0.r11-grl/lib"/>
     <property name="gopherProxySet" value="false"/>
     <property name="maven.multiModuleProjectDirectory" value="/Users/acrow/projects/crowtech"/>
     <property name="java.vm.vendor" value="GraalVM Community"/>
@@ -17,7 +17,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/Users/acrow/projects/crowtech/quarkus-nest"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="11.0.10+8-jvmci-20.3-b09"/>
+    <property name="java.runtime.version" value="11.0.10+8-jvmci-21.0-b06"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.io.tmpdir" value="/var/folders/rz/2vwbk__17wn9q234sk_grg2m0000gn/T/"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
-    <property name="java.home" value="/Users/acrow/.sdkman/candidates/java/20.3.1.r11-grl"/>
+    <property name="java.home" value="/Users/acrow/.sdkman/candidates/java/21.0.0.r11-grl"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -60,10 +60,10 @@
     <property name="java.vendor.url.bug" value="https://github.com/oracle/graal/issues"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="GraalVM CE 20.3.1"/>
+    <property name="java.vendor.version" value="GraalVM CE 21.0.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="au.com.crowtech.nest.utils.KeycloakUtilsTest" name="testKeycloak" time="0.478"/>
+  <testcase classname="au.com.crowtech.nest.utils.KeycloakUtilsTest" name="testKeycloak" time="0.437"/>
 </testsuite>
