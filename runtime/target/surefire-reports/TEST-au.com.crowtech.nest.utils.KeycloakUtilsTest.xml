@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="au.com.crowtech.nest.utils.KeycloakUtilsTest" time="0.437" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="au.com.crowtech.nest.utils.KeycloakUtilsTest" time="0.72" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.10+8-jvmci-21.0-b06"/>
     <property name="sun.boot.library.path" value="/Users/acrow/.sdkman/candidates/java/21.0.0.r11-grl/lib"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/acrow/projects/crowtech"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/acrow/projects/crowtech/quarkus-nest"/>
     <property name="java.vm.vendor" value="GraalVM Community"/>
     <property name="java.vendor.url" value="https://www.graalvm.org/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -65,5 +65,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="au.com.crowtech.nest.utils.KeycloakUtilsTest" name="testKeycloak" time="0.437"/>
+  <testcase classname="au.com.crowtech.nest.utils.KeycloakUtilsTest" name="testKeycloak" time="0.72"/>
 </testsuite>
