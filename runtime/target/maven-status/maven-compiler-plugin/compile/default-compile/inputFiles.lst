@@ -1,3 +1,3 @@
-/Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/endpoints/ExampleResource.java
-/Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/endpoints/GreetingServlet.java
-/Users/acrow/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/beans/Echo.java
+/home/ubuntu/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/endpoints/GreetingServlet.java
+/home/ubuntu/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/beans/Echo.java
+/home/ubuntu/projects/crowtech/quarkus-nest/runtime/src/main/java/au/com/crowtech/quarkus/nest/endpoints/ExampleResource.java
